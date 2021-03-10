@@ -1,0 +1,172 @@
+# pyinstaller C:\Coding\pomodoro\pomodoro.spec
+
+<MyTextInput@MDTextField>:
+    font_size: '45sp'
+    max_text_length: 45
+    color_mode: 'accent'
+    helper_text: "Describe the task at hand."
+    helper_text_mode: "on_focus"
+    multiline: True
+
+<MYCheckbox@MDCheckbox>
+    size_hint: None, None
+    selected_color: 1, 1, .0, 1
+    size: dp(48), dp(48)
+    active: False
+
+
+<OneScreen>:
+    but1: but1
+    but2: but2
+    lb: lb
+    lb1: lb1
+    pb: pb
+    it1: it1
+    it2: it2
+    it3: it3
+    check1: check1
+    check2: check2
+    check3: check3
+    hb: hb
+    canvas:
+        Color:
+            rgb: .60, .2, .2
+        Rectangle:
+            size: self.size
+
+    MDGridLayout:
+        rows: 3
+        padding: 10
+        spacing: 5
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            adaptive_height: True
+
+            MDLabel:
+                id: lb
+                halign: "center"
+                font_size: '45sp'
+                color: 1, 1, 1, 1
+                text: '25:00'
+
+            MDProgressBar:
+                id: pb
+                color: 1, 1, .0, 1
+                value: 0
+            MDBoxLayout:
+                MDLabel:
+                    id: lb1
+                    font_size: '12sp'
+                    color: 1, 1, 1, 1
+                    text: ''
+                MDFlatButton:
+                    id: hb
+                    text_color: 1, 1, 0, 1
+                    font_size: '12'
+                    text: 'History'
+                    on_release:root.manager.current = 'history'
+
+        ScrollView:
+            MDList:
+                MDBoxLayout:
+                    adaptive_height: True
+                    MYCheckbox:
+                        id: check1
+                        on_release: root.trig_chec(check1, it1)
+
+                    MyTextInput:
+                        id: it1
+                        multiline: True
+                        required: True
+                        error: False
+                        hint_text: "Task №1:"
+
+                MDBoxLayout:
+                    adaptive_height: True
+                    MYCheckbox:
+                        id: check2
+                        on_release: root.trig_chec(check2, it2)
+
+                    MyTextInput:
+                        id: it2
+                        multiline: True
+                        hint_text: "Task №2:"
+
+                MDBoxLayout:
+                    adaptive_height: True
+                    MYCheckbox:
+                        id: check3
+                        on_release: root.trig_chec(check3, it3)
+
+                    MyTextInput:
+                        id: it3
+                        multiline: True
+                        hint_text: "Task №3:"
+
+        MDBoxLayout:
+            padding: [50, 0, 0 ,0]
+            spacing: 5
+            adaptive_height: True
+            adaptive_width: True
+
+            MDRectangleFlatButton:
+                id: but1
+                halign: "center"
+                text_color: 1, 1, 1, 1
+                font_size: '12sp'
+                text: 'Start'
+                on_release:
+                    root.trig_button_1()
+
+            MDRectangleFlatButton:
+                id: but2
+                halign: "center"
+                text_color: 1, 1, 1, 1
+                font_size: '12sp'
+                text: 'Reset'
+                on_release:
+                    root.trig_button_2()
+
+
+<HistoryScreen>:
+    canvas:
+        Color:
+            rgb: .60, .2, .2
+        Rectangle:
+            size: self.size
+    on_pre_enter:root.rid()
+    lost_history: lost_history
+    but3:but3
+    but4:but4
+    MDGridLayout:
+        rows: 2
+        padding: 10
+        spacing: 5
+
+        ScrollView:
+            MDList:
+                id: lost_history
+
+        MDBoxLayout:
+            padding: [50, 0, 0 ,0]
+            spacing: 5
+            adaptive_height: True
+            adaptive_width: True
+
+            MDRectangleFlatButton:
+                id: but3
+                halign: "center"
+                text_color: 1, 1, 1, 1
+                font_size: '12sp'
+                text: 'Back'
+                on_release:
+                    root.manager.current = 'one'
+
+            MDRectangleFlatButton:
+                id: but4
+                halign: "center"
+                text_color: 1, 1, 1, 1
+                font_size: '12sp'
+                text: 'Delete'
+                on_release: root.reset()
