@@ -1,0 +1,41 @@
+<HistoryScreen>:
+    canvas:
+        Color:
+            rgb: .60, .2, .2
+        Rectangle:
+            size: self.size
+    on_pre_enter:root.rid()
+    lost_history: lost_history
+    but3:but3
+    but4:but4
+    MDGridLayout:
+        rows: 2
+        padding: 10
+        spacing: 5
+
+        ScrollView:
+            MDList:
+                id: lost_history
+
+        MDBoxLayout:
+            padding: [50, 0, 0 ,0]
+            spacing: 5
+            adaptive_height: True
+            adaptive_width: True
+
+            MDRectangleFlatButton:
+                id: but3
+                halign: "center"
+                text_color: 1, 1, 1, 1
+                font_size: '12sp'
+                text: 'Back'
+                on_release:
+                    root.manager.current = 'home'
+
+            MDRectangleFlatButton:
+                id: but4
+                halign: "center"
+                text_color: 1, 1, 1, 1
+                font_size: '12sp'
+                text: 'Delete'
+                on_release: root.reset()
