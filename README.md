@@ -1,2 +1,5 @@
-# MyPomodoro
- My version of "Pomodoro" written in Python, Kivy with kivymd
+# MyPomodoro V01
+My version of "Pomodoro", (Python3, Kivy, KivyMD), language: Eng, Ru
+
+![alt text](https://github.com/OrlovSA/MyPomodoro/blob/main/app/resources/images/preview_home.jpeg?raw=true)
+![alt text](https://github.com/OrlovSA/MyPomodoro/blob/main/app/resources/images/preview_history.png?raw=true)
