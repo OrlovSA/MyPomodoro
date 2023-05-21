@@ -7,7 +7,6 @@ KivyConfig.set("graphics", "height", "350")
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import ScreenManager, FadeTransition
 from kivy.lang import Builder
-
 from app.screens.home.home import HomeScreen
 from app.screens.history.history import HistoryScreen
 from app import config
