@@ -1,16 +1,30 @@
 <MyTextInput@MDTextField>:
-    font_size: '45sp'
-    max_text_length: 45
-    color_mode: 'accent'
+    font_size: '20sp'
+    max_text_length: 50
     helper_text: "Describe the task at hand."
-    helper_text_mode: "on_focus"
+    helper_text_mode: "persistent"
     multiline: True
+    color_mode: 'custom'
+    line_color_focus: 1, 1, .1, 1
+    error_color: 1, 1, .1, 1
+    text_color_focus: 1, 1, 1, 1
+    text_color_normal: 1, 1, 1, 1
+    helper_text_color_focus: 1, 1, .1, 1
+    hint_text_color_focus: 1, 1, .1, 1
 
-<MYCheckbox@MDCheckbox>
+
+<MyCheckbox@MDCheckbox>
     size_hint: None, None
-    selected_color: 1, 1, .0, 1
+    selected_color: 1, 1, .1, 1
     size: dp(48), dp(48)
     active: False
+
+
+<MyRectangleFlatButton@MDRectangleFlatButton>
+    halign: "center"
+    text_color: 1, 1, 1, 1
+    md_bg_color: 1, 1, .1, .1
+    font_size: '16sp'
 
 
 <HomeScreen>:
@@ -41,29 +55,39 @@
             orientation: 'vertical'
             adaptive_height: True
 
+            MDProgressBar:
+                id: pb 
+                color: 1, 1, .0, 1
+                size_hint_y: .2
+                height: '10dp'
+                value: 0
+
+            MDLabel:
+                font_size: '16sp'
+                text: ''
+
             MDLabel:
                 id: lb
                 halign: "center"
-                font_size: '45sp'
+                font_size: '40sp'
                 color: 1, 1, 1, 1
                 text: '25:00'
 
-            MDProgressBar:
-                id: pb
+            MDLabel:
+                font_size: '16sp'
+                text: ''
+
+            MDLabel:
+                id: lb1
+                font_size: '16sp'
                 color: 1, 1, .0, 1
-                value: 0
-            MDBoxLayout:
-                MDLabel:
-                    id: lb1
-                    font_size: '12sp'
-                    color: 1, 1, 1, 1
-                    text: ''
+                text: ''
 
         ScrollView:
             MDList:
                 MDBoxLayout:
                     adaptive_height: True
-                    MYCheckbox:
+                    MyCheckbox:
                         id: check1
                         on_release: root.trig_chec(check1, it1)
 
@@ -73,10 +97,11 @@
                         required: True
                         error: False
                         hint_text: "Task №1:"
+                        
 
                 MDBoxLayout:
                     adaptive_height: True
-                    MYCheckbox:
+                    MyCheckbox:
                         id: check2
                         on_release: root.trig_chec(check2, it2)
 
@@ -87,7 +112,7 @@
 
                 MDBoxLayout:
                     adaptive_height: True
-                    MYCheckbox:
+                    MyCheckbox:
                         id: check3
                         on_release: root.trig_chec(check3, it3)
 
@@ -102,29 +127,20 @@
             adaptive_height: True
             adaptive_width: True
 
-            MDRectangleFlatButton:
+            MyRectangleFlatButton:
                 id: but1
-                halign: "center"
-                text_color: 1, 1, 1, 1
-                font_size: '12sp'
                 text: 'Start'
                 on_release:
                     root.trig_button_1()
 
-            MDRectangleFlatButton:
+            MyRectangleFlatButton:
                 id: but2
-                halign: "center"
-                text_color: 1, 1, 1, 1
-                font_size: '12sp'
                 text: 'Reset'
                 on_release:
                     root.trig_button_2()
             
 
-            MDRectangleFlatButton:
+            MyRectangleFlatButton:
                 id: hb
-                halign: "center"
-                text_color: 1, 1, 1, 1
-                font_size: '12sp'
                 text: 'History'
                 on_release:root.manager.current = 'history'

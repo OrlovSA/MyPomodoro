@@ -1,0 +1,5 @@
+Kivy==2.2.0
+Kivy-Garden==0.1.5
+kivymd==1.1.1
+Pillow==9.5.0
+Pygments==2.15.1

@@ -1,3 +1,10 @@
+<MyRectangleFlatButton@MDRectangleFlatButton>
+    halign: "center"
+    text_color: 1, 1, 1, 1
+    md_bg_color: 1, 1, .1, .1
+    font_size: '16sp'
+
+
 <HistoryScreen>:
     canvas:
         Color:
@@ -8,6 +15,7 @@
     lost_history: lost_history
     but3:but3
     but4:but4
+
     MDGridLayout:
         rows: 2
         padding: 10
@@ -23,19 +31,13 @@
             adaptive_height: True
             adaptive_width: True
 
-            MDRectangleFlatButton:
+            MyRectangleFlatButton:
                 id: but3
-                halign: "center"
-                text_color: 1, 1, 1, 1
-                font_size: '12sp'
                 text: 'Back'
                 on_release:
                     root.manager.current = 'home'
 
-            MDRectangleFlatButton:
+            MyRectangleFlatButton:
                 id: but4
-                halign: "center"
-                text_color: 1, 1, 1, 1
-                font_size: '12sp'
                 text: 'Delete'
                 on_release: root.reset()

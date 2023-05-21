@@ -33,6 +33,7 @@ class HistoryScreen(HomeScreen, Screen):
                     self.lost_history.add_widget(
                         TwoLineListItem(
                             text=f"{n[0]}",
+                            text_color=[1, 1, 1, 1],
                             secondary_text_color=[1, 1, 1, 1],
                             secondary_text=f"{n[1]}",
                         )
